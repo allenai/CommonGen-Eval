@@ -1,5 +1,5 @@
 # CommonGen-Eval
-Evaluating LLMs with the CommonGen Task
+Evaluating LLMs with the CommonGen Task 
 
 
 ## Leaderboard 
@@ -28,7 +28,7 @@ Evaluating LLMs with the CommonGen Task
 - Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
 - Scripts: see `scripts/{model_name}.sh`
 
-For example, 
+Example:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1,2,3 \
@@ -41,10 +41,12 @@ python vllm_infer.py \
 
 ## Run GPT-4 based evaluation 
 
+- Dataset: you will need to apply for the access to [CommonGen-lite-eval](https://huggingface.co/datasets/allenai/commongen_lite_eval) 
 - Scripts: see `scripts/all_gpt_eval.sh`.
 
+Example: 
 ```bash
-models=("zephyr-7b-beta" "tulu-2-dpo-70b" "vicuna-13b-v1.5" "Llama-2-7b-chat-hf" "Mixtral-8x7B-Instruct-v0.1" "Yi-34b-chat" "Yi-6b-chat" "gpt-3.5-turbo" "gpt-4-0613" "gpt-4-1106-preview")
+models=("zephyr-7b-beta" "tulu-2-dpo-70b" "vicuna-13b-v1.5")
 for model in "${models[@]}"
 do 
     python evaluate.py --mode "compare" \
@@ -53,3 +55,35 @@ do
         --model gpt-4-1106-preview &
 done
 ```
+
+## Contact 
+
+- Email: **yuchenl@allenai.org**
+- Project website: [https://inklab.usc.edu/CommonGen/](https://inklab.usc.edu/CommonGen/)
+- Website: [https://yuchenlin.xyz/](https://yuchenlin.xyz/)
+
+
+
+## Citation 
+
+```bibtex
+@inproceedings{lin-etal-2020-commongen,
+    title = "{C}ommon{G}en: A Constrained Text Generation Challenge for Generative Commonsense Reasoning",
+    author = "Lin, Bill Yuchen  and
+      Zhou, Wangchunshu  and
+      Shen, Ming  and
+      Zhou, Pei  and
+      Bhagavatula, Chandra  and
+      Choi, Yejin  and
+      Ren, Xiang",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2020",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.findings-emnlp.165",
+    pages = "1823--1840", 
+}
+```
+
+
