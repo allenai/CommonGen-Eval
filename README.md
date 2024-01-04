@@ -23,4 +23,33 @@ Evaluating LLMs with the CommonGen Task
 - pos: the percentage of examples where the part-of-speech (PoS) of each given concept is correct in model outputs
 - win: the percentage of examples where GPT-4-turbo prefers the model outputs over the human-written references
 
-## 
+## Run model inference with CommonGen-lite 
+
+- Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
+- Scripts: see `scripts/{model_name}.sh`
+
+For example, 
+
+```bash
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+python vllm_infer.py \
+    --data_name "commongen" \
+    --model_name 01-ai/Yi-34b-chat --tensor_parallel_size 4  --dtype bfloat16 \
+    --output_folder "model_outputs/" \
+    --top_p 1 --temperature 0 --batch_size 8 --max_tokens 128
+```
+
+## Run GPT-4 based evaluation 
+
+- Scripts: see `scripts/all_gpt_eval.sh`.
+
+```bash
+models=("zephyr-7b-beta" "tulu-2-dpo-70b" "vicuna-13b-v1.5" "Llama-2-7b-chat-hf" "Mixtral-8x7B-Instruct-v0.1" "Yi-34b-chat" "Yi-6b-chat" "gpt-3.5-turbo" "gpt-4-0613" "gpt-4-1106-preview")
+for model in "${models[@]}"
+do 
+    python evaluate.py --mode "compare" \
+        --model_output_file "model_outputs/${model}.json" \
+        --eval_output_file "eval_outputs/${model}.eval_result.gpt-4-1106-preview.json" \
+        --model gpt-4-1106-preview &
+done
+```
