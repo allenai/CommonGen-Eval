@@ -47,10 +47,12 @@ human_row = {}
 # print("-"*20)
 human_row["model"] = "human"
 human_row["win"] = "-"
+human_row["win_tie"] = "100"
 # human_row["tie"] = "-"
 human_row["pos"] = f"{sum(human_pos_ratios)/len(human_pos_ratios)*100:.2f}"
 human_row["cover"] = f"{sum(human_cover_ratios)/len(human_cover_ratios)*100:.2f}"
 human_row["len"] = f"{sum(human_lens)/len(human_lens):.2f}"
+human_row["overall"] = "100"
 table.append(human_row)
  
     
@@ -99,16 +101,20 @@ for model, file in files.items():
     # print("-"*20)
     row = {}
     row["model"] = model
-    row["win"] = f"{win_count/len(all_ref_ids_to_test)*100:.2f}"
+    row["win"] = f"{(win_count)/len(all_ref_ids_to_test)*100:.2f}"
+    row["win_tie"] = f"{(win_count+tie_count)/len(all_ref_ids_to_test)*100:.2f}"
     # row["tie"] = tie_count/len(all_ref_ids_to_test)
     row["pos"] = f"{sum(pos_ratios)/len(pos_ratios)*100:.2f}"
     row["cover"] = f"{sum(cover_ratios)/len(cover_ratios)*100:.2f}"
     row["len"] = f"{sum(lens)/len(lens):.2f}"
+    overall = (float(row["win_tie"]) * float(row["pos"]) * float(row["cover"])) / 10000
+    row["overall"] = f"{overall:.2f}"
     table.append(row)
 # sort by win
 # order the keys by ["len", "cover", "pos", "win"]
-table = [{"model": item["model"], "len": item["len"], "cover": item["cover"], "pos": item["pos"], "win":item["win"]} for item in table]
-table = table[0:1] +  sorted(table[1:], key=lambda x: x["win"], reverse=True)
+table = [{"model": item["model"], "len": item["len"], "cover": item["cover"], "pos": item["pos"], "win_tie":item["win_tie"], "overall": item["overall"]} for item in table]
+table = table[0:1] +  sorted(table[1:], key=lambda x: float(x["overall"]), reverse=True)
 print(tabulate(table, headers="keys", tablefmt="github", floatfmt=".2f"))
+print(tabulate(table, headers="keys", tablefmt="html", floatfmt=".2f").replace(' style="text-align: right;"', ""))
      
 
