@@ -4,19 +4,19 @@
 
 ## Leaderboard 
 
-| model                      |   len |   cover |    PoS |   win_tie |   overall |
-|----------------------------|-------|---------|--------|-----------|-----------|
-| human                      | 12.84 |  100.00 | 100.00 |    100.00 |    100.00 |
-| gpt-4-0613                 | 14.13 |   97.67 |  90.44 |     50.44 |     44.56 |
-| gpt-4-1106-preview         | 14.90 |   96.78 |  90.22 |     50.78 |     44.34 |
-| gpt-3.5-turbo              | 12.76 |   91.67 |  82.00 |     49.78 |     37.42 |
-| Yi-34b-chat                | 13.45 |   79.56 |  72.89 |     39.44 |     22.87 |
-| vicuna-13b-v1.5            | 15.02 |   85.89 |  77.56 |     27.44 |     18.28 |
-| tulu-2-dpo-70b             | 17.89 |   89.44 |  80.67 |     23.00 |     16.59 |
-| Mixtral-8x7B-Instruct-v0.1 | 20.15 |   84.44 |  72.11 |     17.89 |     10.89 |
-| Llama-2-7b-chat-hf         | 16.06 |   88.44 |  73.22 |     15.44 |     10.00 |
-| Yi-6b-chat                 | 13.32 |   71.22 |  62.11 |     22.11 |      9.78 |
-| zephyr-7b-beta             | 15.76 |   81.33 |  69.56 |     16.89 |      9.56 |
+| model                      |   len |   cover |   pos |   win_tie |   overall |
+|----------------------------|-------|---------|-------|-----------|-----------|
+| human                      | 12.84 |   99.00 | 98.11 |    100.00 |     97.13 |
+| gpt-4-0613                 | 14.13 |   97.44 | 91.78 |     50.44 |     45.11 |
+| gpt-4-1106-preview         | 14.90 |   96.33 | 90.11 |     50.78 |     44.08 |
+| gpt-3.5-turbo              | 12.76 |   92.11 | 83.00 |     49.78 |     38.06 |
+| Yi-34b-chat                | 13.45 |   80.11 | 75.11 |     39.44 |     23.73 |
+| vicuna-13b-v1.5            | 15.02 |   85.89 | 79.56 |     27.44 |     18.75 |
+| tulu-2-dpo-70b             | 17.89 |   88.78 | 80.11 |     23.00 |     16.36 |
+| Mixtral-8x7B-Instruct-v0.1 | 20.15 |   84.11 | 73.33 |     17.89 |     11.03 |
+| Llama-2-7b-chat-hf         | 16.06 |   88.56 | 76.44 |     15.44 |     10.45 |
+| zephyr-7b-beta             | 15.76 |   82.44 | 72.78 |     16.89 |     10.13 |
+| Yi-6b-chat                 | 13.32 |   71.67 | 63.56 |     22.11 |     10.07 |
 
 - **length**: the number of words on average in the generated sentences
 - **cover**: the percentage of examples where all given concepts are covered by model outputs 
@@ -28,6 +28,7 @@
 
 ```bash 
 pip install -r requirements.txt
+python -m spacy download en_core_web_lg
 ```
 
 ## Run model inference

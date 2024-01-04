@@ -18,8 +18,7 @@ def analyze_words(pos_words, sentence):
     global nlp 
     
     if nlp is None:
-        nlp = spacy.load('en_core_web_sm')
-        # nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner', 'textcat', '...'])
+        nlp = spacy.load('en_core_web_lg') 
     doc = nlp(sentence)
 
     # Prepare the inputs

@@ -1,12 +1,8 @@
-"""
-pip install spacy
-python -m spacy download en_core_web_sm
-"""
-
 from eval_utils import analyze_words
 import json 
 from datasets import load_dataset
 from tabulate import tabulate
+from collections import defaultdict
 
 files = {
     "Mixtral-8x7B-Instruct-v0.1": "eval_outputs/Mixtral-8x7B-Instruct-v0.1.eval_result.gpt-4-1106-preview.json",
@@ -36,7 +32,7 @@ for item in truth_data:
         human_pos_ratios.append(len(found_pos_words)==len(cs))
         human_cover_ratios.append(len(found_words)==len(cs))
         human_lens.append(len(ref["ref"].split(" ")))
-
+ 
 
 # print(len(all_ref_ids_to_test))
 human_row = {}
@@ -47,19 +43,20 @@ human_row = {}
 # print("-"*20)
 human_row["model"] = "human"
 human_row["win"] = "-"
-human_row["win_tie"] = "100"
+human_row["win_tie"] = "100.00"
 # human_row["tie"] = "-"
 human_row["pos"] = f"{sum(human_pos_ratios)/len(human_pos_ratios)*100:.2f}"
 human_row["cover"] = f"{sum(human_cover_ratios)/len(human_cover_ratios)*100:.2f}"
 human_row["len"] = f"{sum(human_lens)/len(human_lens):.2f}"
-human_row["overall"] = "100"
+human_row["overall"] = f"{(float(human_row['win_tie']) * float(human_row['pos']) * float(human_row['cover'])) / 10000:.2f}"
 table.append(human_row)
  
     
 
 model_data = {}
-llama_correct = set()
-zephyr_correct = set()
+
+# default dict to be a 0 
+human_wins = defaultdict(int)
 
 for model, file in files.items():
     # load the model outputs
@@ -73,13 +70,13 @@ for model, file in files.items():
     cover_ratios = []
     lens = []
     print(len(results))
-    for item in results:
-        # if f"{item['id']}#{item['ref_index']}" in all_ref_ids_to_test:
+    for item in results: 
         if item["human_ref"]["id"] in all_ref_ids_to_test:
             if item["winner"] == model:
                 win_count += 1    
             elif item["winner"] == "human":
                 human_win_count += 1
+                human_wins[item["human_ref"]["id"]] += 1 
             else:
                 tie_count += 1
             output = item["model_output"][0]
@@ -87,18 +84,8 @@ for model, file in files.items():
             found_words, found_pos_words = analyze_words(cs, output)
             pos_ratios.append(len(found_pos_words)==len(cs))
             cover_ratios.append(len(found_words)==len(cs))
-            lens.append(len(output.split(" ")))
-    # print("win_count", win_count)
-    # print("human_win_count", human_win_count)
-    # print("tie_count", tie_count)
-    assert win_count + human_win_count + tie_count == len(all_ref_ids_to_test)
-
-    # print(f"{model}-winrate: {win_count/len(all_ref_ids_to_test)}")
-    # print(f"{model}-loserate: {human_win_count/len(all_ref_ids_to_test)}")
-    # print(f"{model}-pos-ratio: {sum(pos_ratios)/len(pos_ratios)}")
-    # print(f"{model}-cover-ratio: {sum(cover_ratios)/len(cover_ratios)}")
-    # print(f"{model}-avg-len: {sum(lens)/len(lens)}")
-    # print("-"*20)
+            lens.append(len(output.split(" "))) 
+    assert win_count + human_win_count + tie_count == len(all_ref_ids_to_test) 
     row = {}
     row["model"] = model
     row["win"] = f"{(win_count)/len(all_ref_ids_to_test)*100:.2f}"
