@@ -23,6 +23,13 @@ Evaluating LLMs with the CommonGen Task
 - pos: the percentage of examples where the part-of-speech (PoS) of each given concept is correct in model outputs
 - win: the percentage of examples where GPT-4-turbo prefers the model outputs over the human-written references
 
+## Installation 
+
+```bash
+# pip freeze > requirements.txt
+pip install -r requirements.txt
+```
+
 ## Run model inference with CommonGen-lite 
 
 - Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
