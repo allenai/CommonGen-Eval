@@ -29,7 +29,7 @@ Evaluating LLMs with the CommonGen Task
 pip install -r requirements.txt
 ```
 
-## Run model inference with CommonGen-lite 
+## Run model inference
 
 - Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
 - Scripts: see `scripts/{model_name}.sh`
@@ -64,11 +64,9 @@ done
 
 ## Contact 
 
-- Email: **yuchenl@allenai.org**
+- Person: [Bill Yuchen Lin](https://yuchenlin.xyz/)
 - Project website: [https://inklab.usc.edu/CommonGen/](https://inklab.usc.edu/CommonGen/)
-- Website: [https://yuchenlin.xyz/](https://yuchenlin.xyz/)
-
-
+- HuggingFace Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
 
 ## Citation 
 
