@@ -1,5 +1,5 @@
 # CommonGen-Eval
-Evaluating LLMs with the CommonGen Task 
+(Re-)Evaluating LLMs with the [CommonGen](https://inklab.usc.edu/CommonGen/) Task. We use 400 examples and use GPT-4 to evaluate model outputs versus human references. 
 
 
 ## Leaderboard 
