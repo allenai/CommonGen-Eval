@@ -4,7 +4,7 @@ Evaluating LLMs with the CommonGen Task
 
 ## Leaderboard 
 
-| model                      |   len |   cover |    pos | win   |
+| model                      |length |   cover |    pos | win   |
 |----------------------------|-------|---------|--------|-------|
 | human                      | 12.84 |  100.00 | 100.00 | -     |
 | gpt-4-1106-preview         | 14.90 |   96.78 |  90.22 | 50.78 |
@@ -17,3 +17,10 @@ Evaluating LLMs with the CommonGen Task
 | Mixtral-8x7B-Instruct-v0.1 | 20.15 |   84.44 |  72.11 | 17.89 |
 | zephyr-7b-beta             | 15.76 |   81.33 |  69.56 | 16.89 |
 | Llama-2-7b-chat-hf         | 16.06 |   88.44 |  73.22 | 15.22 |
+
+- lengh: the number of words on average in the generated sentences
+- cover: the percentage of examples where all given concepts are covered by model outputs 
+- pos: the percentage of examples where the part-of-speech (PoS) of each given concept is correct in model outputs
+- win: the percentage of examples where GPT-4-turbo prefers the model outputs over the human-written references
+
+## 
