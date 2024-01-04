@@ -25,8 +25,7 @@ Evaluating LLMs with the CommonGen Task
 
 ## Installation 
 
-```bash
-# pip freeze > requirements.txt
+```bash 
 pip install -r requirements.txt
 ```
 
