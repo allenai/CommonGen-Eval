@@ -19,6 +19,7 @@ files = {
 
 table = []
 
+aggregated_eval_results = {}
 human_pos_ratios = []
 human_cover_ratios = []
 human_lens = []
@@ -32,6 +33,7 @@ for item in truth_data:
         human_pos_ratios.append(len(found_pos_words)==len(cs))
         human_cover_ratios.append(len(found_words)==len(cs))
         human_lens.append(len(ref["ref"].split(" ")))
+        aggregated_eval_results[ref["id"]] = {"concept_set": item["concept_set"], "human_ref": ref["ref"], "found_words": list(found_words), "found_pos_words": list(found_pos_words), "len": len(ref["ref"].split(" ")), "model_outputs": {}}
  
 
 # print(len(all_ref_ids_to_test))
@@ -56,7 +58,6 @@ table.append(human_row)
 model_data = {}
 
 # default dict to be a 0 
-human_wins = defaultdict(int)
 
 for model, file in files.items():
     # load the model outputs
@@ -76,7 +77,6 @@ for model, file in files.items():
                 win_count += 1    
             elif item["winner"] == "human":
                 human_win_count += 1
-                human_wins[item["human_ref"]["id"]] += 1 
             else:
                 tie_count += 1
             output = item["model_output"][0]
@@ -85,6 +85,12 @@ for model, file in files.items():
             pos_ratios.append(len(found_pos_words)==len(cs))
             cover_ratios.append(len(found_words)==len(cs))
             lens.append(len(output.split(" "))) 
+        
+        # if item["human_ref"]["id"] not in aggregated_eval_results:
+            
+        r = "win" if item["winner"] == model else "lose" if item["winner"] == "human" else "tie"
+        aggregated_eval_results[item["human_ref"]["id"]]["model_outputs"][model] = {"output": output, "result": r, "found_pos_words": list(found_pos_words), "found_words": list(found_words), "len": len(output.split(" "))} 
+            
     assert win_count + human_win_count + tie_count == len(all_ref_ids_to_test) 
     row = {}
     row["model"] = model
@@ -105,3 +111,5 @@ print(tabulate(table, headers="keys", tablefmt="github", floatfmt=".2f"))
 print(tabulate(table, headers="keys", tablefmt="html", floatfmt=".2f").replace(' style="text-align: right;"', ""))
      
 
+with open("eval_outputs/aggregated_eval_results.json", "w") as f:
+    json.dump(aggregated_eval_results, f, indent=2)

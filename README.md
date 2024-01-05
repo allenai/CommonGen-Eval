@@ -47,6 +47,31 @@ python vllm_infer.py \
     --top_p 1 --temperature 0 --batch_size 8 --max_tokens 128
 ```
 
+### Instruction Prompt Template  (2-shots prompting)
+
+```markdown
+# Instruction
+
+Given several concepts (i.e., nouns or verbs), write a short and simple sentence that contains *all* the required words.
+The sentence should describe a common scene in daily life, and the concepts should be used in a natural way.
+
+# Examples
+
+## Example 1
+- Concepts: "dog(noun), frisbee(noun), catch(verb), throw(verb)"
+- Sentence: The dog catches the frisbee when the boy throws it into the air.
+
+## Example 2
+- Concepts: "apple(noun), place(verb), tree(noun), pick(verb)"
+- Sentence: A girl picks some apples from a tree and places them into her basket.
+
+# Your Task 
+
+- Concepts: "{$concept_list}"
+- Sentence: 
+```
+
+
 ## Run GPT-4 based evaluation 
 
 - Dataset: you will need to apply for the access to [CommonGen-lite-eval](https://huggingface.co/datasets/allenai/commongen_lite_eval) 
@@ -64,9 +89,43 @@ do
 done
 ```
 
-## Contact 
+### Evaluation Prompt Template (Pairwise Comparison) 
 
-- Person: [Bill Yuchen Lin](https://yuchenlin.xyz/)
+```markdown
+# Data
+
+Given several concepts (i.e., nouns or verbs), we ask models to write a short and simple sentence that contains *all* the required words. 
+The sentence should describe a common scene in daily life, and the concepts should be used in a natural way.
+
+Concepts: "{$concept_list}"
+
+Model A: "{$candidate_A}"
+
+Model B: "{$candidate_B}"
+
+# Your Task
+
+Your task is to choose a better sentence from the two candidates. Decide which model's sentence is better in terms of the naturalness and commonness of the scenes they describe. 
+
+## Rules: 
+- A better sentence should describe a common scene in daily life, and all concepts should be used in a natural way.
+- You should prefer sentences that use all given concepts with correct part-of-speech tags. 
+- A simpler and shorter sentence is preferred if it describes the same scene as the other sentence.
+- If you think both sentences are equally good or bad, please choose "tie".
+
+Now, please output your choice ("A" or "B" or "tie").
+
+Your choice: 
+```
+
+
+## Case studies 
+
+
+
+## Links 
+
+- Contact: [Bill Yuchen Lin](https://yuchenlin.xyz/)
 - Project website: [https://inklab.usc.edu/CommonGen/](https://inklab.usc.edu/CommonGen/)
 - HuggingFace Dataset: [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite) 
 
