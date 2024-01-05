@@ -121,6 +121,7 @@ Now, please output your choice ("A" or "B" or "tie").
 
 Your choice: 
 ```
+
 </details>
 
 
