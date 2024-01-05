@@ -14,7 +14,7 @@
 
 
 # CommonGen-Eval
-(Re-)Evaluating LLMs on the [CommonGen](https://inklab.usc.edu/CommonGen/) task using the new [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite)  dataset (400 examples with 900 human references). 
+Evaluating LLMs with [CommonGen](https://inklab.usc.edu/CommonGen/) using [CommonGen-lite](https://huggingface.co/datasets/allenai/commongen_lite)  dataset (400 examples + 900 human references). 
 We use GPT-4 to evaluate the constrained text generation ability of LLMs. Please see more in our [paper](https://arxiv.org/abs/1911.03705).
 
 
