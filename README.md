@@ -128,6 +128,32 @@ Your choice:
 
 ## Case studies 
 
+<details>
+<summary> Example 1 </summary>
+
+- Concepts: ['demonstrate_V', 'machine_N', 'sew_V', 'use_V']
+- Human Reference: She used the sewing machine to demonstrate how well she could sew.
+- Mixtral-8x7B-Instruct-v0.1:  During the fashion design class, the teacher demonstrates how to use the sewing machine to create a stylish outfit.
+                 ----> vs Human = lose
+- Yi-34b-chat: The tailor demonstrates how to use the sewing machine.
+                 ----> vs Human = win
+- Yi-6b-chat: The machine demonstrates how to sew a useful item.
+                 ----> vs Human = lose
+- Llama-2-7b-chat-hf: The teacher demonstrates how to use the sewing machine to sew a new dress, which the student will use to create a beautiful outfit for the school play.
+                 ----> vs Human = lose
+- zephyr-7b-beta: The tailor demonstrates how to use the sewing machine to create garments by allowing the customer to try it out themselves.
+                 ----> vs Human = lose
+- tulu-2-dpo-70b: A woman demonstrates how to use a machine to sew, showing the audience step by step.
+                 ----> vs Human = lose
+- vicuna-13b-v1.5:  The tailor demonstrates how to use the sewing machine to make a dress.
+                 ----> vs Human = lose
+- gpt-3.5-turbo: The tailor uses the sewing machine to demonstrate how to sew a straight line.
+                 ----> vs Human = lose
+- gpt-4-0613: The instructor demonstrates how to use the sewing machine by sewing a piece of fabric.
+                 ----> vs Human = lose
+- gpt-4-1106-preview: The tailor demonstrates how to use the sewing machine by making a small pouch.
+
+</details>
 
 
 ## Links 
