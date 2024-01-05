@@ -46,8 +46,9 @@ python vllm_infer.py \
     --output_folder "model_outputs/" \
     --top_p 1 --temperature 0 --batch_size 8 --max_tokens 128
 ```
-
-### Instruction Prompt Template  (2-shots prompting)
+ 
+<details>
+<summary>Instruction Prompt Template  (2-shots prompting)</summary>
 
 ```markdown
 # Instruction
@@ -71,11 +72,14 @@ The sentence should describe a common scene in daily life, and the concepts shou
 - Sentence: 
 ```
 
+</details>
+
 
 ## Run GPT-4 based evaluation 
 
-- Dataset: you will need to apply for the access to [CommonGen-lite-eval](https://huggingface.co/datasets/allenai/commongen_lite_eval) 
-- Scripts: see `scripts/all_gpt_eval.sh`.
+To make your model on the leaderboard, please create an issue or PR to submit the inference script. I'll run the following evaluation script and update the leaderboard. You will not need to run the evaluation script yourself (the script needs special access to a HF dataset.)
+
+Scripts: see `scripts/all_gpt_eval.sh` and `evaluate.py` for more details.
 
 Example: 
 ```bash
@@ -89,8 +93,8 @@ do
 done
 ```
 
-### Evaluation Prompt Template (Pairwise Comparison) 
-
+<details>
+<summary>Evaluation Prompt Template (Pairwise Comparison)</summary>
 ```markdown
 # Data
 
@@ -117,6 +121,7 @@ Now, please output your choice ("A" or "B" or "tie").
 
 Your choice: 
 ```
+</details>
 
 
 ## Case studies 
