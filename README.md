@@ -1,14 +1,14 @@
-<p align="center">
+<p>
 <!-- Link to tutorials badge using shields.io -->
 <!-- Follow on twitter badge using shields.io -->
   <a href="https://inklab.usc.edu/CommonGen/">
-    <img src="https://img.shields.io/badge/Website-💻-red">
+    <img src="https://img.shields.io/badge/Website-💻-green">
   </a>
   <a href="https://arxiv.org/abs/1911.03705">
-    <img src="https://img.shields.io/badge/Paper-📝-blue">
+    <img src="https://img.shields.io/badge/Paper-📝-orange">
   </a> 
   <a href="https://huggingface.co/datasets/allenai/commongen_lite">
-    <img src="https://img.shields.io/badge/Dataset-🤗-orange">
+    <img src="https://img.shields.io/badge/Dataset-🤗-blue">
   </a> 
 </p>
 
