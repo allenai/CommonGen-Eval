@@ -40,6 +40,8 @@ We use GPT-4 to evaluate the constrained text generation ability of LLMs. Please
 - **win_tie**: the percentage of examples where GPT-4-turbo prefers the model outputs over the human-written references (or thinks they are equally good)
 - **overall**: `cover%` x `pos%` x `win_tie%` 
 
+Link: [https://inklab.usc.edu/CommonGen/leaderboard.html](https://inklab.usc.edu/CommonGen/leaderboard.html)
+
 ## Installation 
 
 ```bash 
