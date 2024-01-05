@@ -128,118 +128,120 @@ Your choice:
 
 ## Case studies 
 
+Here are some examples of the generated sentences from the models. 
+
 <details>
     <summary> Example 1 </summary>
 
 - **Concepts**: `['demonstrate_V', 'machine_N', 'sew_V', 'use_V']`
 - **Human Reference**: `She used the sewing machine to demonstrate how well she could sew.`
 - **Mixtral-8x7B-Instruct-v0.1**: ` During the fashion design class, the teacher demonstrates how to use the sewing machine to create a stylish outfit.`
---> ```Versus=lose; Cover=False; POS=False; Len=20```
+--> ```Versus=lose; Cover=False; PoS=False; Len=20```
 - **Yi-34b-chat**: `The tailor demonstrates how to use the sewing machine.`
---> ```Versus=win; Cover=False; POS=False; Len=9```
+--> ```Versus=win; Cover=False; PoS=False; Len=9```
 - **Yi-6b-chat**: `The machine demonstrates how to sew a useful item.`
---> ```Versus=lose; Cover=False; POS=False; Len=9```
+--> ```Versus=lose; Cover=False; PoS=False; Len=9```
 - **Llama-2-7b-chat-hf**: `The teacher demonstrates how to use the sewing machine to sew a new dress, which the student will use to create a beautiful outfit for the school play.`
---> ```Versus=lose; Cover=True; POS=True; Len=28```
+--> ```Versus=lose; Cover=True; PoS=True; Len=28```
 - **zephyr-7b-beta**: `The tailor demonstrates how to use the sewing machine to create garments by allowing the customer to try it out themselves.`
---> ```Versus=lose; Cover=False; POS=False; Len=21```
+--> ```Versus=lose; Cover=False; PoS=False; Len=21```
 - **tulu-2-dpo-70b**: `A woman demonstrates how to use a machine to sew, showing the audience step by step.`
---> ```Versus=lose; Cover=True; POS=True; Len=16```
+--> ```Versus=lose; Cover=True; PoS=True; Len=16```
 - **vicuna-13b-v1.5**: ` The tailor demonstrates how to use the sewing machine to make a dress.`
---> ```Versus=lose; Cover=False; POS=False; Len=14```
+--> ```Versus=lose; Cover=False; PoS=False; Len=14```
 - **gpt-3.5-turbo**: `The tailor uses the sewing machine to demonstrate how to sew a straight line.`
---> ```Versus=lose; Cover=True; POS=True; Len=14```
+--> ```Versus=lose; Cover=True; PoS=True; Len=14```
 - **gpt-4-0613**: `The instructor demonstrates how to use the sewing machine by sewing a piece of fabric.`
---> ```Versus=lose; Cover=True; POS=True; Len=15```
+--> ```Versus=lose; Cover=True; PoS=True; Len=15```
 - **gpt-4-1106-preview**: `The tailor demonstrates how to use the sewing machine by making a small pouch.`
---> ```Versus=win; Cover=False; POS=False; Len=14```
+--> ```Versus=win; Cover=False; PoS=False; Len=14```
 
 </details>
 
 
 <details>
-    <summary> Example 1 </summary>
+    <summary> Example 2 </summary>
 
 - **Concepts**: `['car_N', 'drive_V', 'road_N', 'water_N']`
 - **Human Reference**: `A man drives the car slowly because there is water on the road`
 - **Mixtral-8x7B-Instruct-v0.1**: ` During the road trip, the family takes breaks to drink water next to the car driving on the open road.`
---> ```Versus=lose; Cover=True; POS=True; Len=21```
+--> ```Versus=lose; Cover=True; PoS=True; Len=21```
 - **Yi-34b-chat**: `The car drives down the road splashing water from the puddles.`
---> ```Versus=win; Cover=True; POS=True; Len=11```
+--> ```Versus=win; Cover=True; PoS=True; Len=11```
 - **Yi-6b-chat**: `The car drives along the road, avoiding the puddle of water.`
---> ```Versus=win; Cover=True; POS=True; Len=11```
+--> ```Versus=win; Cover=True; PoS=True; Len=11```
 - **Llama-2-7b-chat-hf**: `The driver drives the car along the road, feeling the water splashing against the tires.`
---> ```Versus=lose; Cover=True; POS=True; Len=15```
+--> ```Versus=lose; Cover=True; PoS=True; Len=15```
 - **zephyr-7b-beta**: `The driver takes the car along the road until they reach a place with water, where they cannot drive anymore.`
---> ```Versus=lose; Cover=True; POS=True; Len=20```
+--> ```Versus=lose; Cover=True; PoS=True; Len=20```
 - **tulu-2-dpo-70b**: `A person drives their car on the road next to a river, where the water is flowing smoothly.`
---> ```Versus=lose; Cover=True; POS=True; Len=18```
+--> ```Versus=lose; Cover=True; PoS=True; Len=18```
 - **vicuna-13b-v1.5**: ` The car drives on the road by the water.`
---> ```Versus=lose; Cover=True; POS=True; Len=10```
+--> ```Versus=lose; Cover=True; PoS=True; Len=10```
 - **gpt-3.5-turbo**: `I drive my car on the road next to the water.`
---> ```Versus=win; Cover=True; POS=True; Len=11```
+--> ```Versus=win; Cover=True; PoS=True; Len=11```
 - **gpt-4-0613**: `The man drives his car on the road that runs alongside the sparkling water.`
---> ```Versus=lose; Cover=True; POS=True; Len=14```
+--> ```Versus=lose; Cover=True; PoS=True; Len=14```
 - **gpt-4-1106-preview**: `The car drives smoothly on the wet road, splashing water as it goes.`
---> ```Versus=win; Cover=True; POS=True; Len=13```
+--> ```Versus=win; Cover=True; PoS=True; Len=13```
 
 </details>
 
 
 <details>
-    <summary> Example 1 </summary>
+    <summary> Example 3 </summary>
 
 - **Concepts**: `['ceiling_N', 'climb_V', 'gym_N', 'rope_N', 'suspend_V']`
 - **Human Reference**: `The boys climbed the rope suspended from the gym ceiling.`
 - **Mixtral-8x7B-Instruct-v0.1**: ` During gym class, the students take turns climbing the suspended rope while the others cheer from below, careful not to hit their heads on the ceiling.`
---> ```Versus=lose; Cover=True; POS=True; Len=27```
+--> ```Versus=lose; Cover=True; PoS=True; Len=27```
 - **Yi-34b-chat**: `The gymnast climbs the rope and suspends from the ceiling of the gym.`
---> ```Versus=lose; Cover=True; POS=True; Len=13```
+--> ```Versus=lose; Cover=True; PoS=True; Len=13```
 - **Yi-6b-chat**: `The climber suspends themselves on the rope as they climb the gym's ceiling.`
---> ```Versus=lose; Cover=True; POS=True; Len=13```
+--> ```Versus=lose; Cover=True; PoS=True; Len=13```
 - **Llama-2-7b-chat-hf**: `The gym teacher suspends herself from the ceiling using a rope while climbing to reach the high bar for a workout.`
---> ```Versus=lose; Cover=True; POS=True; Len=21```
+--> ```Versus=lose; Cover=True; PoS=True; Len=21```
 - **zephyr-7b-beta**: `Gymnasts suspend themselves from the ceiling by climbing on the ropes in the gym.`
---> ```Versus=lose; Cover=True; POS=True; Len=14```
+--> ```Versus=lose; Cover=True; PoS=True; Len=14```
 - **tulu-2-dpo-70b**: `In the gym, an athlete climbs a rope suspended from the ceiling to improve their physical fitness.`
---> ```Versus=lose; Cover=True; POS=True; Len=17```
+--> ```Versus=lose; Cover=True; PoS=True; Len=17```
 - **vicuna-13b-v1.5**: ` In the gym, she climbs up to the ceiling using a rope that is suspended from the top.`
---> ```Versus=lose; Cover=True; POS=True; Len=19```
+--> ```Versus=lose; Cover=True; PoS=True; Len=19```
 - **gpt-3.5-turbo**: `In the gym, the athlete climbs the rope and suspends himself from the ceiling.`
---> ```Versus=lose; Cover=True; POS=True; Len=14```
+--> ```Versus=lose; Cover=True; PoS=True; Len=14```
 - **gpt-4-0613**: `In the gym, a man climbs a rope that is suspended from the ceiling.`
---> ```Versus=lose; Cover=True; POS=True; Len=14```
+--> ```Versus=lose; Cover=True; PoS=True; Len=14```
 - **gpt-4-1106-preview**: `In the gym, the rope is suspended from the ceiling for athletes to climb during their workout.`
---> ```Versus=lose; Cover=True; POS=True; Len=17```
+--> ```Versus=lose; Cover=True; PoS=True; Len=17```
 
 </details>
 
 
 <details>
-    <summary> Example 1 </summary>
+    <summary> Example 4 </summary>
 
 - **Concepts**: `['hat_N', 'knit_V', 'pile_N', 'rock_N', 'sit_V']`
 - **Human Reference**: `The woman sat on a pile of rocks and knitted a hat.`
 - **Mixtral-8x7B-Instruct-v0.1**: ` During her break, a woman sits on a rock and starts to knit a pile of hats to sell at the local market.`
---> ```Versus=lose; Cover=True; POS=True; Len=24```
+--> ```Versus=lose; Cover=True; PoS=True; Len=24```
 - **Yi-34b-chat**: `The knitted hat sat on a pile of rocks.`
---> ```Versus=lose; Cover=False; POS=False; Len=9```
+--> ```Versus=lose; Cover=False; PoS=False; Len=9```
 - **Yi-6b-chat**: `The woman knits a cozy hat while sitting on a rock, placing the pile of rocks around her.`
---> ```Versus=lose; Cover=True; POS=True; Len=18```
+--> ```Versus=lose; Cover=True; PoS=True; Len=18```
 - **Llama-2-7b-chat-hf**: `The old man sits on a rock and knits a new hat while piling up the ones he already has, enjoying the peaceful atmosphere.`
---> ```Versus=lose; Cover=True; POS=False; Len=24```
+--> ```Versus=lose; Cover=True; PoS=False; Len=24```
 - **zephyr-7b-beta**: `A woman sits on a rock and knits a hat from a pile of yarn.`
---> ```Versus=lose; Cover=True; POS=True; Len=15```
+--> ```Versus=lose; Cover=True; PoS=True; Len=15```
 - **tulu-2-dpo-70b**: `An elderly woman knits a colorful hat while sitting on a pile of rocks, enjoying the peaceful scenery around her.`
---> ```Versus=lose; Cover=True; POS=True; Len=20```
+--> ```Versus=lose; Cover=True; PoS=True; Len=20```
 - **vicuna-13b-v1.5**: ` The old man sits on a rock and knits a hat in a pile of yarn.`
---> ```Versus=lose; Cover=True; POS=True; Len=17```
+--> ```Versus=lose; Cover=True; PoS=True; Len=17```
 - **gpt-3.5-turbo**: `The old man sits on a rock, wearing a knitted hat, while a pile of leaves gathers around him.`
---> ```Versus=lose; Cover=False; POS=False; Len=19```
+--> ```Versus=lose; Cover=False; PoS=False; Len=19```
 - **gpt-4-0613**: `The woman sits on a rock, knitting a hat, with a pile of yarn beside her.`
---> ```Versus=lose; Cover=True; POS=True; Len=16```
+--> ```Versus=lose; Cover=True; PoS=True; Len=16```
 - **gpt-4-1106-preview**: `She sits on a rock, knitting a hat, and places the finished ones in a colorful pile beside her.`
---> ```Versus=lose; Cover=True; POS=True; Len=19```
+--> ```Versus=lose; Cover=True; PoS=True; Len=19```
 
 </details>
 
