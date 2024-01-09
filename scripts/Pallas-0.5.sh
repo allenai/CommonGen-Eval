@@ -1,6 +1,6 @@
 CUDA_VISIBLE_DEVICES=0,1,2,3 \
 python vllm_infer.py \
-    --download_dir "./net" \
+    --download_dir /net/nfs/s2-research/llama2/ \
     --data_name "commongen" \
     --model_name Mihaiii/Pallas-0.5 --tensor_parallel_size 4  --dtype bfloat16 \
     --output_folder "model_outputs/" \
