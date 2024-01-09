@@ -22,7 +22,8 @@ We use GPT-4 to evaluate the constrained text generation ability of LLMs. Please
 
 | model                      |   len |   cover |   pos |   win_tie |   overall |
 |----------------------------|-------|---------|-------|-----------|-----------|
-| human                      | 12.84 |   99.00 | 98.11 |    100.00 |     97.13 |
+| human  (upper bound)       | 12.84 |   99.00 | 98.11 |    100.00 |     97.13 |
+| human  (lower bound)       | 12.84 |   99.00 | 98.11 |     50.00 |     48.57 |
 | gpt-4-0613                 | 14.13 |   97.44 | 91.78 |     50.44 |     45.11 |
 | gpt-4-1106-preview         | 14.90 |   96.33 | 90.11 |     50.78 |     44.08 |
 | gpt-3.5-turbo              | 12.76 |   92.11 | 83.00 |     49.78 |     38.06 |
