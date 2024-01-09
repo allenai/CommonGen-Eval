@@ -18,6 +18,8 @@ def apply_template(chat_history, model_name):
             conv = get_conv_template("Yi-34b-chat")
         elif "vicuna" in model_name.lower():
             conv = get_conv_template("vicuna_v1.1")
+        elif "pallas" in model_name.lower():
+            conv = get_conv_template("vicuna_v1.1")
         elif "gpt-" in model_name.lower():
             model_inputs.append(chats[0])
             continue
