@@ -3,8 +3,9 @@ import json
 from datasets import load_dataset
 from tabulate import tabulate
 from collections import defaultdict
-
+import copy 
 files = {
+    "Pallas-0.5": "eval_outputs/Pallas-0.5.eval_result.gpt-4-1106-preview.json",
     "Mixtral-8x7B-Instruct-v0.1": "eval_outputs/Mixtral-8x7B-Instruct-v0.1.eval_result.gpt-4-1106-preview.json",
     "Yi-34b-chat": "eval_outputs/Yi-34b-chat.eval_result.gpt-4-1106-preview.json",
     "Yi-6b-chat": "eval_outputs/Yi-6b-chat.eval_result.gpt-4-1106-preview.json",
@@ -43,13 +44,18 @@ human_row = {}
 # print("human-cover-ratio: ", sum(human_cover_ratios)/len(human_cover_ratios))
 # print("human-avg-len: ", sum(human_lens)/len(human_lens))
 # print("-"*20)
-human_row["model"] = "human"
+human_row["model"] = "human (upper bound)"
 human_row["win"] = "-"
 human_row["win_tie"] = "100.00"
 # human_row["tie"] = "-"
 human_row["pos"] = f"{sum(human_pos_ratios)/len(human_pos_ratios)*100:.2f}"
 human_row["cover"] = f"{sum(human_cover_ratios)/len(human_cover_ratios)*100:.2f}"
 human_row["len"] = f"{sum(human_lens)/len(human_lens):.2f}"
+human_row["overall"] = f"{(float(human_row['win_tie']) * float(human_row['pos']) * float(human_row['cover'])) / 10000:.2f}"
+table.append(human_row)
+human_row_2 = copy.deepcopy(human_row)
+human_row_2["model"] = "human (lower bound)"
+human_row_2["win_tie"] = "50.00"
 human_row["overall"] = f"{(float(human_row['win_tie']) * float(human_row['pos']) * float(human_row['cover'])) / 10000:.2f}"
 table.append(human_row)
  

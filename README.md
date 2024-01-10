@@ -40,6 +40,7 @@ We use GPT-4 to evaluate the constrained text generation ability of LLMs. Please
 - **PoS**: the percentage of examples where the part-of-speech (PoS) of ALL given concepts are correct in model outputs
 - **win_tie**: the percentage of examples where GPT-4-turbo prefers the model outputs over the human-written references (or thinks they are equally good)
 - **overall**: `cover%` x `pos%` x `win_tie%` 
+- **human**: the upper bound here considers win_tie=100% and the lower bound considers win_tie=50%.
 
 Link: [https://inklab.usc.edu/CommonGen/leaderboard.html](https://inklab.usc.edu/CommonGen/leaderboard.html)
 
@@ -98,7 +99,7 @@ The sentence should describe a common scene in daily life, and the concepts shou
 
 To make your model on the leaderboard, please create an issue or PR to submit the inference script. I'll run the following evaluation script and update the leaderboard. You will not need to run the evaluation script yourself (the script needs special access to a HF dataset.)
 
-Scripts: see `scripts/all_gpt_eval.sh` and `evaluate.py` for more details.
+Scripts: see `scripts/all_gpt_eval.sh` and `evaluate.py` for knowing more details.
 
 Example: 
 ```bash
