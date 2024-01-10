@@ -28,6 +28,7 @@ We use GPT-4 to evaluate the constrained text generation ability of LLMs. Please
 | gpt-4-1106-preview         | 14.90 |   96.33 | 90.11 |     50.78 |     44.08 |
 | gpt-3.5-turbo              | 12.76 |   92.11 | 83.00 |     49.78 |     38.06 |
 | Yi-34b-chat                | 13.45 |   80.11 | 75.11 |     39.44 |     23.73 |
+| Pallas-0.5                 | 14.83 |   86.67 | 79.56 |     32.22 |     22.22 |
 | vicuna-13b-v1.5            | 15.02 |   85.89 | 79.56 |     27.44 |     18.75 |
 | tulu-2-dpo-70b             | 17.89 |   88.78 | 80.11 |     23.00 |     16.36 |
 | Mixtral-8x7B-Instruct-v0.1 | 20.15 |   84.11 | 73.33 |     17.89 |     11.03 |
