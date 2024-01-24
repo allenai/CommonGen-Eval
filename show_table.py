@@ -5,6 +5,7 @@ from tabulate import tabulate
 from collections import defaultdict
 import copy 
 files = {
+    "TurnOpt": "eval_outputs/TurnOpt.eval_result.gpt-4-1106-preview.json",
     "Pallas-0.5": "eval_outputs/Pallas-0.5.eval_result.gpt-4-1106-preview.json",
     "Mixtral-8x7B-Instruct-v0.1": "eval_outputs/Mixtral-8x7B-Instruct-v0.1.eval_result.gpt-4-1106-preview.json",
     "Yi-34b-chat": "eval_outputs/Yi-34b-chat.eval_result.gpt-4-1106-preview.json",
@@ -56,8 +57,8 @@ table.append(human_row)
 human_row_2 = copy.deepcopy(human_row)
 human_row_2["model"] = "human (lower bound)"
 human_row_2["win_tie"] = "50.00"
-human_row["overall"] = f"{(float(human_row['win_tie']) * float(human_row['pos']) * float(human_row['cover'])) / 10000:.2f}"
-table.append(human_row)
+human_row_2["overall"] = f"{(float(human_row_2['win_tie']) * float(human_row_2['pos']) * float(human_row_2['cover'])) / 10000:.2f}"
+table.append(human_row_2)
  
     
 
